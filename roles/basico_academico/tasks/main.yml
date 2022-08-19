@@ -1,0 +1,15 @@
+---
+- name: Instalar pacotes padroes laboratorios - Windows
+  win_chocolatey: name={{ pkgs_win }} # state=latest timeout=9000
+  loop:
+  - googlechrome
+  - jre8
+  - firefox
+  - 7zip
+  - vlc
+  - cutepdf
+  - adobereader
+  - putty
+  loop_control:
+    loop_var: pkgs_win
+  when: ansible_os_family == 'Windows' and ansible_hostname is search("^BRIS6SL")

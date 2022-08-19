@@ -1,0 +1,13 @@
+- hosts:  laboratorios
+  tasks:
+  - name: cria novo usuário
+    win_user:
+      name: jogos
+      password: jogos
+      state: present
+      groups:
+        - Administradores
+      update_password: always
+    when: ansible_os_family == 'Windows' and ansible_hostname is search("^DESKTOP-BRIS6SL")
+    # NOTE: na linha acima subistitua o conteúdo após ^ pelos primeiros caracteres (que se mantém fixo) do hostname
+    # Exemplo: no caso do hostname tub-depe-a07, ficaria "^tub-depe-"

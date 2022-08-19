@@ -1,0 +1,61 @@
+---
+#---------LINUX-----------------------------
+- name: Ensure managment user exists
+  ansible.builtin.user:
+    name: "{{ remote_user }}"
+    state: present
+  when: ansible_os_family == 'Debian'
+- name: Include ssh_public_key in remote file if not exists
+  ansible.builtin.lineinfile:
+   path: "/home/{{ remote_user }}/.ssh/authorized_keys"
+   line: "{{ ssh_public_key }}"
+   create: true
+  when: ansible_os_family == 'Debian'
+- name: Ensure sudo is installed
+  ansible.builtin.apt:
+   name: sudo
+   state: present
+  when: ansible_os_family == 'Debian'
+- name: Config NOPASSWD in sudoers
+  ansible.builtin.lineinfile:
+   path: /etc/sudoers.d/ctic
+   line: "{{ remote_user }}  ALL=(ALL:ALL) NOPASSWD:ALL"
+   create: true
+  when: ansible_os_family == 'Debian'
+- name: Update repositories
+  ansible.builtin.apt:
+    name: "*"
+  when: ansible_os_family == 'Debian'
+- name: Install ansible dependencies
+  ansible.builtin.package:
+   name:
+    - python
+   state: present
+  when: ansible_os_family == 'Debian'
+#--------WINDOWS------------------------------
+- name: Instala (se não estiver instalado) o chocolatey
+  win_chocolatey:
+    name: chocolatey
+    state: present
+    source: https://community.chocolatey.org/install.ps1
+  when: ansible_os_family == 'Windows'
+
+- name: Cria ansible_manager_user declarado em hosts, se não estiver criado, como Administrador
+  win_user:
+    name: "{{ansible_manager_user}}"
+    password: "{{ansible_manager_password}}"
+    state: present
+    groups:
+      - Administradores
+  when: ansible_os_family == 'Windows'
+
+# - name: Upgrade installed packages
+#   win_chocolatey:
+#     name: all
+#     state: latest
+#   when: ansible_os_family == 'Windows'
+
+
+
+
+

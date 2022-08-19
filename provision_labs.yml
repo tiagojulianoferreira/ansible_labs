@@ -1,0 +1,4 @@
+- hosts: laboratorios
+  roles:
+   - basico
+   - basico_academico
