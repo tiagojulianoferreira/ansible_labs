@@ -12,6 +12,7 @@ laboratórios de informática.
 A ideia é organizarmos as roles conforme os perfis de uso dos PCs. Isso pode ser atualizado com o tempo.
 
 **roles/basico** - contém aplicativos e configurações básicas genéricas, aplicáveis a todos os perfis de máquinas
+
 **roles/basico_academico** - contém aplicativos e configurações básicas gerais aplicáveis a laboratórios e PCs de professor
 ...
 
