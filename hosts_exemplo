@@ -1,6 +1,6 @@
 [laboratorios]
-10.140.90.241
-10.140.90.247
+192.168.1.1
+192.168.1.2
 
 [laboratorios:vars]
 ansible_user=<INSIRA_USUARIO_LABs>> # pode ser uma boa criar um usuário de gerencia específico pro ansible(Ex: ansible)
