@@ -10,6 +10,7 @@
   - cutepdf
   - adobereader
   - putty
+  - git.install
   loop_control:
     loop_var: pkgs_win
   when: ansible_os_family == 'Windows' and ansible_hostname is search("^BRIS6SL")

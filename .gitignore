@@ -1,3 +1,4 @@
 hosts
 test.yml
 roles/windows_tests
+.env

@@ -4,8 +4,6 @@
 
 [laboratorios:vars]
 ansible_user=<INSIRA_USUARIO_LABs>> # pode ser uma boa criar um usuário de gerencia específico pro ansible(Ex: ansible)
-ansible_password=<INSIRA_SENHA_LABS>
-ansible_pass="<INSIRA_SENHA_LABs>"
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
 ansible_python_interpreter=/usr/bin/python3

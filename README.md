@@ -2,7 +2,8 @@
 Este projeto contém rotinas úteis para executar comandos remotamente e de forma automatizada tanto nos hosts Linux quanto Windows instalados nos
 laboratórios de informática.
 
-# Funcionalidades
+# Funcionalidades: playbooks, tasks e roles
+O arquivo de playbook .yml na raiz do projeto pode tanto chamar **tasks** diretamente quanto chamar as **roles**. Abaixo a lista de funcionalidades já implementadas ([veja mais sobre playbooks, tasks e roles](docs/conceitos_basicos.md)):
 
 - [x] Configurações e comandos básicos de sistema usando WinRM(ver lista de módulos [Windows](https://docs.ansible.com/ansible/2.9/modules/list_of_windows_modules.html#windows-modules) e [Linux](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html))
 - [x] Instalação do Chocolatey para implementação de pacotes/aplicativos no Windows
@@ -23,6 +24,12 @@ No arquivo de inventário na raiz do projeto, chamado [hosts](hosts_exemplo) ond
 Importante: **A versão de produção desse arquivo não deve ser exposta**
 
 > Se for fazer push do projeto pro Gitlab, certtifique-se de que este arquivo conste no .gitignore
+
+# Demais arquivos do projeto
+Pode haver na raiz do projeto arquivos de apoio como:
+- _.gitignore_ para ignorar arquivos e pasta no envio pro repositório git
+- _.ansible-lint_ que trás configurações da ferramenta de lint do Ansible
+- _docs/_ é a pasta que contém documentação e material de apoio
 
 # Contribuição
 Para colaborar incluindo novos roles(funcionalidades) a esse projeto, siga os [seguintes passos](docs/contributing.md).

@@ -1,0 +1,7 @@
+---
+# Instala pacotes necessário para máquina de gerência do Ansible
+- name: Instala Git (se não estiver instalado)
+  win_chocolatey:
+    name: git.install
+    state: present
+  when: ansible_os_family == 'Windows'
