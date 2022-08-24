@@ -2,11 +2,14 @@
 Este projeto contém rotinas úteis para executar comandos remotamente e de forma automatizada tanto nos hosts Linux quanto Windows instalados nos
 laboratórios de informática.
 
+# Pré-requisitos
+- Ajustes no WinRM conforme [documentação oficial](https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html)
+
 # Funcionalidades: playbooks, tasks e roles
 O arquivo de playbook .yml na raiz do projeto pode tanto chamar **tasks** diretamente quanto chamar as **roles**. Abaixo a lista de funcionalidades já implementadas ([veja mais sobre playbooks, tasks e roles](docs/conceitos_basicos.md)):
 
 - [x] Configurações e comandos básicos de sistema usando WinRM(ver lista de módulos [Windows](https://docs.ansible.com/ansible/2.9/modules/list_of_windows_modules.html#windows-modules) e [Linux](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html))
-- [x] Instalação do Chocolatey para implementação de pacotes/aplicativos no Windows
+- [x] Instala o Chocolatey para implementação de pacotes/aplicativos no Windows
 - [x] Cria e configura usuário de gerência (ansible_user) e envia chave ssh pro host(somente Linux)
 
 # Organização das roles
